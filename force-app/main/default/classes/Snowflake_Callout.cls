@@ -9,7 +9,7 @@ public class Snowflake_Callout{
         req.setHeader('Accept','application/json');
         req.setHeader('Snowflake-Account','ija44251');
 		req.setHeader('Authorization','Bearer ' + token);
-        req.setBody('{"statement": "select current_version()", "timeout": 60, "database":"CRM_DB", "warehouse":"ADMIN_CONNECTOR_WH", "role":"SQLAPIROLE", "resultSetMetaData": "{"format":"json"}" }');
+        req.setBody('{"statement": "select current_version()", "timeout": 60, "database":"CRM_DB", "warehouse":"ADMIN_CONNECTOR_WH", "role":"SQLAPIROLE", "resultSetMetaData": {"format":"json"} }');
 		HttpResponse response = http.send(req);
 //        String respBody = response.getBody();
 //        String s = (String)JSON.deserialize(respBody, String.class);
