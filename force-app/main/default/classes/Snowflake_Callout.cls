@@ -18,14 +18,16 @@ public class Snowflake_Callout{
 //        String s = (String)JSON.deserialize(respBody, String.class);
 //        System.debug(snow_Response_o);
         JSONParser parser = JSON.createParser(respBody);
-        Integer numRows = 0;
+        String numRows;
         while (parser.nextToken() != null) {
             if ((parser.nextToken() == JSONToken.FIELD_NAME) && (parser.getText() == 'numRows')){
                 parser.nextToken();
-                numRows = parser.getIntegerValue();
+                numRows = parser.getText();
             }
             
         }
-        System.debug(numRows);
+        System.debug(numRows); 
+        Snow_Response__c Snow_Obj = new Snow_Response__c(Response_1__c=numRows);
+        Database.insert(Snow_Obj);
     }
 }
