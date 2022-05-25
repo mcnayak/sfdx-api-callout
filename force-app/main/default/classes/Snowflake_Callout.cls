@@ -11,8 +11,11 @@ public class Snowflake_Callout{
 		req.setHeader('Authorization','Bearer ' + token);
         req.setBody('{"statement": "select current_version()", "timeout": 60, "database":"CRM_DB", "warehouse":"ADMIN_CONNECTOR_WH", "role":"SQLAPIROLE", "resultSetMetaData": {"format":"json"} }');
 		HttpResponse response = http.send(req);
-//        String respBody = response.getBody();
+        String respBody = response.getBody();
+        System.debug(respBody);
+//        Snow_Response__c snow_Response_o = (Snow_Response__c)JSON.deserialize(respBody, Snow_Response__c.class);
+//        Database.insert(Snow_Response);
 //        String s = (String)JSON.deserialize(respBody, String.class);
-//        System.debug(res.getBody());
+//        System.debug(snow_Response_o);
     }
 }
